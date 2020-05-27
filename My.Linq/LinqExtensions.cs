@@ -31,5 +31,19 @@ namespace My.Linq
 
             return false;
         }
+
+        public static IEnumerable<T> Take<T>(this IEnumerable<T> list, int count)
+        {
+            int i = 0;
+            foreach (var item in list)
+            {
+                i++;
+
+                if (i > count)
+                    break;
+
+                yield return item;
+            }
+        }
     }
 }
